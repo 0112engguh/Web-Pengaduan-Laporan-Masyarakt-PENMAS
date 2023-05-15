@@ -72,7 +72,11 @@ class MasyarakatController extends Controller
      */
     public function show($id)
     {
-        //
+        $item = Pengaduan::with([
+            'details', 'user'
+        ])->findOrFail($id);
+
+        return view('masyarakat.show', compact('item'));
     }
 
     /**

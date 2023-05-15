@@ -42,15 +42,10 @@
               @csrf
               <input type="number" style="display: none" name="user_id" value="{{Auth::user()->id}}">
 
-              <p class="form-label" style="font-weight: 500">Tulis laporan disini <i class="fas fa-hand-point-down"></i></p>
+              <p class="form-label" for="laporan" style="font-weight: 500">Tulis laporan disini <i class="fas fa-hand-point-down"></i></p>
               <textarea id="story" name="laporan" rows="10" cols="170" placeholder="Tulis laporan anda disini"></textarea>
 
-              <div class="mt-2">
-                <label for="tanggal_pengaduan">Tanggal Pengaduan</label>
-                <input type="date" name="tanggal_pengaduan" id="tanggal_pengaduan">
-              </div>
-
-              <div class="mt-2">
+              <div class="mt-3">
                 <p style="font-weight: 500" class="form-label">Upload Foto</p>
                 <div class="input-group mb-3">
                   <input name="path_foto" type="file" class="form-control" id="inputGroupFile02">

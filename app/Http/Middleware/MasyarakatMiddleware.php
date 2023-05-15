@@ -21,7 +21,7 @@ class MasyarakatMiddleware
         if( Auth::user() && Auth::user()->roles == 'masyarakat') {
             return $next($request);
         }
-        return redirect('/');
+        return redirect('403');
 
     }
 }

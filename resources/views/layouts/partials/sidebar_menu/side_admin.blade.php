@@ -17,7 +17,7 @@
   </a>
 </li>
 <li class="nav-item">
-  <a class="nav-link" href="pages/documentation/documentation.html" >
+  <a class="nav-link" href="{{route('all-laporan')}}" >
     <i class="fas fa-file"></i>
     <span class="menu-title ml-3">Laporan</span>
   </a>

@@ -6,8 +6,9 @@ use App\Models\Pengaduan;
 use App\Models\Tanggapan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
-class PengaduanController extends Controller
+class TanggapanController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +17,7 @@ class PengaduanController extends Controller
      */
     public function index()
     {
-        $items = Pengaduan::orderBy('created_at', 'DESC')->get();
-        return view('admin.pengaduan', compact('items'));
+        //
     }
 
     /**
@@ -38,34 +38,43 @@ class PengaduanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        DB::table('m_pengaduan')->where('id', $request->pengaduan_id)->update([
+            'status'=> $request->status,
+        ]);
+
+        $petugas_id = Auth::user()->id;
+
+        $data = $request->all();
+        $data['tanggapan'] = $request->input('tanggapan');
+        $data['pengaduan_id'] = $request->pengaduan_id;
+        $data['petugas_id'] = $petugas_id;
+        // dd($data);
+        Tanggapan::create($data);
+        return redirect('/admin/pengaduan');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Tanggapan  $tanggapan
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
         $item = Pengaduan::with([
-            'details', 'user'
+            'details', 'user' 
         ])->findOrFail($id);
 
-        $data = DB::table('users')->join('m_pengaduan', 'm_pengaduan.user_id', '=', 'users.id')->first();
-        $tanggap = Tanggapan::where('pengaduan_id', $id)->first();
-
-        return view('admin.show', compact('item', 'data', 'tanggap'));
+        return view('admin.tanggapan.create', compact('item'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Tanggapan  $tanggapan
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Tanggapan $tanggapan)
     {
         //
     }
@@ -74,10 +83,10 @@ class PengaduanController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\Tanggapan  $tanggapan
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Tanggapan $tanggapan)
     {
         //
     }
@@ -85,15 +94,11 @@ class PengaduanController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\Tanggapan  $tanggapan
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Tanggapan $tanggapan)
     {
-        $pengaduan = Pengaduan::find($id);
-        $pengaduan->delete();
-
-        // Alert::success('Berhasil', 'Pengaduan telah di hapus');
-        return redirect('/pengaduan');
+        //
     }
 }

@@ -19,7 +19,6 @@ return new class extends Migration
             $table->longText('laporan');
             $table->string('path_foto')->nullable();
             $table->enum('status', ['Belum diproses','Diproses', 'Selesai'])->default('Belum diproses');
-            $table->date('tanggal_pengaduan')->nullable();
             $table->timestamps();
         });
     }
