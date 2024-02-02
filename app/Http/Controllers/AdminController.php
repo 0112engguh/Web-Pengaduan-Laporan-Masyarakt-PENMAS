@@ -36,3 +36,4 @@ class AdminController extends Controller
         return $pdf->setPaper('a4', 'potrait')->stream('.pdf');
     }
 }
+    

@@ -44,6 +44,9 @@ class MasyarakatController extends Controller
         $request->validate([
             'laporan' => 'required',
             'path_foto' => 'required|mimes:png,jpg,jpeg',
+            'judullaporan' => 'required',
+            'datepicker' => 'required',
+            'lokasi' => 'required',
         ]);
 
         $data = $request->all();
@@ -58,6 +61,9 @@ class MasyarakatController extends Controller
         }
         
         $lap->laporan = $request->laporan;
+        $lap->judullaporan = $request->judullaporan;
+        $lap->datepicker = $request->datepicker;
+        $lap->lokasi = $request->lokasi;
         $lap->user_id = $request->user_id;
         $lap->save();
 
