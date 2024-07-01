@@ -4,6 +4,7 @@ body {
 
 .navbar {
   background: #004643 !important;
+  overflow: hidden;
 }
 
 .navbar li a {
@@ -65,6 +66,26 @@ nav.stroke ul li a:hover:after {
   width: 100%;
 }
 
+.content {
+  padding: 16px;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  transition: all 0.5s ease-in-out;
+}
+
+.sticky + .content {
+  padding-top: 60px;
+} 
+
+.floatingNav {
+  width: calc(100vh - 100px); 
+  border-radius: 2px;
+  box-shadow: 0px 1px 10px #999;
+}
 
 /* Keyframes */
 @-webkit-keyframes fill {

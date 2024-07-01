@@ -35,24 +35,30 @@
           <div class="row">
             @foreach ($data_pengaduan as $item)
             <div class="col-md-4 mb-4">
-              <div class="card card-list" style="width: 19rem;">
-                <img src="{{asset('foto_laporan/'.$item->path_foto)}}" class="card-img-top" style="height: 10rem;" alt="...">
+              <div class="card card-list pt-2" style="width: 20rem;">
+                <a href="{{route('detail-pengaduan', $item->id)}}">
+                  <img src="{{asset('foto_laporan/'.$item->path_foto)}}" class="card-img-top" style="height: 10rem;" alt="...">
+                </a>
                 <div class="card-body">
-                  <h5 class="card-title mb-2" style="font-weight: 650;opacity: 80%;font-size: 1rem">{{$item->judullaporan}}</h5>
+                  <a href="{{route('detail-pengaduan', $item->id)}}">
+                    <h5 class="card-title mb-2" style="font-weight: 650;opacity: 80%;font-size: 1rem">{{$item->judullaporan}}</h5>
+                  </a>
                   <p class="card-text" style="font-weight: 500;font-size: 0.7rem"><i class="fa fa-calendar-day kalender mr-2"></i>{{$item->datepicker}}</p>
-                  @if ($item->status === 'Selesai')
-                    <div style="background-color: green" class="badge text-wrap"> 
-                      <p class="mb-0">{{$item->status}}</p> 
-                    </div>
-                  @elseif ($item->status === 'Diproses')
-                    <div style="background-color: yellow" class="badge text-wrap"> 
-                      <p class="mb-0">{{$item->status}}</p> 
-                    </div>
-                  @else
-                    <div style="background-color: red" class="badge text-wrap"> 
-                      <p class="mb-0">{{$item->status}}</p> 
-                    </div>
-                  @endif
+                  <div class="status text-white">
+                    @if ($item->status === 'Selesai')
+                      <div style="background-color: #304D30" class="badge text-wrap"> 
+                        <p class="mb-0">{{$item->status}}</p> 
+                      </div>
+                    @elseif ($item->status === 'Diproses')
+                      <div style="background-color: #FFB534" class="badge text-wrap"> 
+                        <p class="mb-0">{{$item->status}}</p> 
+                      </div>
+                    @else
+                      <div style="background-color: #BF3131;" class="badge text-wrap"> 
+                        <p class="mb-0">{{$item->status}}</p> 
+                      </div>
+                    @endif
+                  </div>
                 </div>
               </div>
             </div>

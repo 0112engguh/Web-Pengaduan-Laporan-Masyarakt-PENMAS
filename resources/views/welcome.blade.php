@@ -19,7 +19,7 @@
   }
 </style>
 <body>
-    <nav class="navbar navbar-expand-lg bg-light stroke">
+    <nav id="navbar" class="navbar navbar-expand-lg bg-light stroke">
         <div class="container">
           <a class="navbar-brand" href="#"><img src="{{asset('front/img/logo.png')}}" style="width: 8em" alt=""></a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -38,13 +38,14 @@
           </div>
         </div>
     </nav>
+
     <section id="header" class="">
       <div class="container">
         <div class="row">
           <div class="col-md-6 title-header" style="margin-top: 13rem">
             <h1 class="text-white" style="font-weight: bold">Layanan Laporan/Pengaduan<br>Masyarakat Online</h1>
             <p class="fw-light" style="color: #ABD1C6">Sampaikan laporan masalah Anda di sini, kami akan memprosesnya dengan cepat.</p>
-            <a href="{{url('/dashboard-masyarakat')}}" class="btn btn-warning text-white">Laporkan!</a>
+            {{-- <a href="{{url('/dashboard-masyarakat')}}" class="btn btn-warning text-white">Laporkan!</a> --}}
           </div>
           <div class="col-md-6 d-flex right-header" style="margin-top: 7rem">
             <img class="img-header" src="{{asset('front/img/layer 1 1.svg')}}" alt="">
@@ -121,18 +122,28 @@
 
 
 
+    <script>
+      window.onscroll = function() {myFunction()};
 
+      var navbar = document.getElementById("navbar");
+      var sticky = navbar.offsetTop;
 
+      function myFunction() {
+        if (window.pageYOffset >= sticky) {
+          navbar.classList.add("sticky")
+        } else {
+          navbar.classList.remove("sticky");
+        }
+      } 
 
-
-
-
-
-
-
-
-
-
+      window.addEventListener("scroll", function() {
+        if (document.body.scrollTop > 10 || document.documentElement.scrollTop > 10) {
+          document.getElementById("navbar").style.boxShadow = "0 8px 6px -6px #000";
+        } else {
+          document.getElementById("navbar").style.boxShadow = "none";
+        }
+      });
+    </script>
 
 
     <script src="{{ asset('front/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>

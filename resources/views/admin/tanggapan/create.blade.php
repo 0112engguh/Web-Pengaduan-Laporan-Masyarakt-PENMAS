@@ -13,8 +13,13 @@
           @csrf
           <input type="number" style="display: none" name="pengaduan_id" value="{{$item->id}}">
 
-          <p class="form-label" for="tanggapan" style="font-weight: 500">Tulis Tanggapan<i class="fas fa-hand-point-down"></i></p>
-          <textarea id="tanggapan" name="tanggapan" rows="10" cols="110" placeholder="Tulis tanggapan anda disini"></textarea>
+          {{-- <p class="form-label" for="tanggapan" style="font-weight: 500;">Tulis Tanggapan</p>
+          <textarea id="tanggapan" name="tanggapan" rows="10" cols="110" placeholder="Tulis tanggapan anda disini"></textarea> --}}
+
+          <div class="mt-3">
+            <p class="" class="form-label" for="tanggapan">Isi Laporan<span class="text-danger">*</span></p>
+            <textarea name="tanggapan" id="tanggapan" rows="6" class="form-control textarea-flex autosize px-3" placeholder="Isi Tanggapan" required="" style="overflow: hidden; overflow-wrap: break-word; height: 157.6px;"></textarea>
+          </div>
 
           <div class="mt-3 mb-3">
             <label for="jenis_kelamin" class="form-label">Status<span class="text-danger">*</span></label>
