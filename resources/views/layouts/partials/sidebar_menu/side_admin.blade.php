@@ -5,7 +5,7 @@
   </a>
 </li>
 <li class="nav-item">
-  <a class="nav-link" href="{{route('admin.pengaduan')}}">
+  <a class="nav-link" href="{{route('/admin/pengaduan')}}">
     <i class="fas fa-bullhorn"></i>
     <span class="menu-title ml-3">Pengaduan</span>
   </a>

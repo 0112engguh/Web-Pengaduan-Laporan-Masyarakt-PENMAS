@@ -2,17 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Pengaduan;
-use App\Models\Tanggapan;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
-class PengaduanController extends Controller
+class RoleController extends Controller
 {
-    // public function __construct() {
-    //     $this->middleware
-    // }
-
     /**
      * Display a listing of the resource.
      *
@@ -20,8 +13,7 @@ class PengaduanController extends Controller
      */
     public function index()
     {
-        $items = Pengaduan::orderBy('created_at', 'DESC')->get();
-        return view('admin.pengaduan', compact('items'));
+        return 'tai';
     }
 
     /**
@@ -53,14 +45,7 @@ class PengaduanController extends Controller
      */
     public function show($id)
     {
-        $item = Pengaduan::with([
-            'details', 'user'
-        ])->findOrFail($id);
-
-        $data = DB::table('users')->join('m_pengaduan', 'm_pengaduan.user_id', '=', 'users.id')->first();
-        $tanggap = Tanggapan::where('pengaduan_id', $id)->first();
-
-        return view('admin.show', compact('item', 'data', 'tanggap'));
+        //
     }
 
     /**
@@ -94,10 +79,6 @@ class PengaduanController extends Controller
      */
     public function destroy($id)
     {
-        $pengaduan = Pengaduan::find($id);
-        $pengaduan->delete();
-
-        // Alert::success('Berhasil', 'Pengaduan telah di hapus');
-        return redirect('/pengaduan');
+        //
     }
 }
