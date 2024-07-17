@@ -19,7 +19,7 @@
         <p style="font-size: 24px;font-weight:700">Data Laporan</p>
     </div>
     <div class="mb-3">
-        <a href="{{route('cetak-all-laporan')}}" class="py-2 px-2 btn btn-outline-secondary" style="font-weight: 500">Cetak PDF <i class="fa-regular fa-file-pdf ml-2"></i></a>
+        {{-- <a href="{{route('cetak-all-laporan')}}" class="py-2 px-2 btn btn-outline-secondary" style="font-weight: 500">Cetak PDF <i class="fa-regular fa-file-pdf ml-2"></i></a> --}}
     </div>
 
     <div class="card">
