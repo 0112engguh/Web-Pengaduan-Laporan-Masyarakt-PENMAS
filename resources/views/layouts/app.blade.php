@@ -47,40 +47,20 @@
 <body>
     
     <div class="container-scroller">
-        <!-- partial:partials/_navbar.html -->
-        <!-- partial -->
-        {{-- @if (auth()->user()->role == 'kelompok' || auth()->user()->role == 'pendis' || auth()->user()->role == 'verifikator') --}}
-        {{-- @include('layouts.partials.newheader') --}}
-        {{-- @else --}}
         @include('layouts.partials.header')
-        {{-- @endif --}}
         
         <div class="container-fluid page-body-wrapper">
-            
-            {{-- @if (auth()->user()->role == 'kelompok' || auth()->user()->role == 'pendis' || auth()->user()->role == 'verifikator')
-            @else --}}
-            <!-- partial:partials/_sidebar.html -->
             @include('layouts.partials.sidebar')
-            {{-- @endif --}}
-
-
-            <!-- partial -->
 
             <div class="main-panel">
                 <div class="content-wrapper">
                     @yield('content')
                 </div>
 
-                <!-- content-wrapper ends -->
-                <!-- partial:partials/_footer.html -->
                 @include('layouts.partials.footer')
-                <!-- partial -->
             </div>
-            <!-- main-panel ends -->
         </div>
-        <!-- page-body-wrapper ends -->
     </div>
-    <!-- container-scroller -->
 
     <!-- Vendor JS -->
     <script src="{{ asset('skydash/vendors/js/vendor.bundle.base.js') }}"></script>
@@ -129,7 +109,7 @@
     <script src="{{ asset('skydash/js/flot-chart.js') }}"></script>
 
     @stack('js')
-
+{{-- 
     @yield('css_form_dinamis')
     @yield('js_form_dinamis')
     @yield('js_select_wilayah')
@@ -138,7 +118,7 @@
     @if (session()->has('success_msg')) showAlert("{{ session('success_msg') }}", 'success')
     @elseif(session()->has('error_msg')) showAlert("{{ session('error_msg') }}", 'error')
     @elseif(session()->has('warning_msg')) showAlert("{{ session('warning_msg') }}", 'warning')
-    @endif
+    @endif --}}
     </script>
 </body>
 

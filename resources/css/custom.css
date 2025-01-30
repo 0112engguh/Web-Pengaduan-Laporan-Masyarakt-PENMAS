@@ -1,5 +1,5 @@
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Roboto', sans-serif;
   padding: 0;
   margin: 0;
 }
@@ -215,8 +215,4 @@ nav.shift ul li a:hover:after {
     margin: auto;
     border-radius: 0;
   }
-}
-
-.ijo {
-  background-color: #004643;
 }

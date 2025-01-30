@@ -4,27 +4,8 @@
 @push('css')
 <style>
     .card {
-      border-radius: 8px !important;
-      padding: 0.4rem;
-    }
-
-    img {
-      width: 100%;
-      height: 10rem;
-      border-radius: 7px;
-    }
-    a {
-      box-shadow: inset 0 0 0 0 #004643;
-      color: #004643;
-      margin: 0 -.25rem;
-      padding: 0 .25rem;
-      transition: color .3s ease-in-out, box-shadow .3s ease-in-out;
-      font-weight: 500;
-    }
-    a:hover {
-      box-shadow: inset 100px 0 0 0 #004643;
-      color: white;
-      text-decoration: none;
+        border-radius: 8px !important;
+        padding: 1rem;
     }
 </style>
 @endpush
@@ -34,35 +15,18 @@
   <div class="mb-3">
     <p style="font-size: 24px;font-weight:700">Data Laporan</p>
   </div>
-  @foreach ($items as $item)
-    <div class="card w-50">
-        <div class="card-title my-1">
+    <div class="card">
+        <div class="card-title">
         </div>
 
-        <div class="card-body py-0">
-          <div class="row">
-            <div class="col-md-5 p-0 flex-wrap">
-              <img class="rounded float-left" src="{{asset('foto_laporan/'.$item->path_foto)}}" alt="">
-            </div>
-            <div class="col-md-7">
-              <p class="font-weight-bold mb-0">{{$item->judullaporan}}</p>
-              <p class="card-text" style="font-weight: 500;font-size: 0.7rem;opacity: 70%"><i class="fa fa-calendar-day kalender mr-2"></i>{{$item->datepicker}}</p>
-              <span class="d-inline-block text-truncate text-wrap" style="max-height: 5rem;opacity: 85%">
-                <p>{{$item->laporan}}</p>
-              </span>
-              <a href="{{route('admin.pengaduan.detail', $item->id)}}" class="float-right" style="border-radius: 5px !important;font-size:0.8rem">Detail</a>
-            </div>
-          </div>
-
-
-
-
-          {{-- <div class="table-responsive">
+        <div class="card-body">
+          <div class="table-responsive">
             <table class="table">
               <thead style="background: #004643">
                 <tr class="text-center text-white">
                   <th class="px-4 py-3">Foto</th>
                   <th class="px-4 py-3">Tanggal</th>
+                  {{-- <th class="px-4 py-3">Laporan</th> --}}
                   <th class="px-4 py-3">Status</th>
                   <th class="px-4 py-3">Aksi</th>
                 </tr>
@@ -72,6 +36,7 @@
                   <tr>
                     <td class="text-center"><img src="{{asset('foto_laporan/'.$item->path_foto)}}" alt=""></td>
                     <td class="text-center">{{date('d F Y', strtotime($item['created_at']))}}</td>
+                    {{-- <td>{{$item->laporan}}</td> --}}
                     <td class="text-center">
                       @if ($item->status == 'Belum diproses')
                         <span class="bg-danger px-2 py-1 text-white rounded">
@@ -105,10 +70,8 @@
                 @endforeach
               </tbody>
             </table>
-          </div> --}}
+          </div>
         </div>
     </div>
-      
-  @endforeach
 </div>
 @endsection

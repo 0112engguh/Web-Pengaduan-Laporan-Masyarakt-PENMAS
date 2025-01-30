@@ -33,6 +33,7 @@
                     <div class="mb-3">
                       <label for="password" class="form-label">Password <span class="text-danger">*</span></label>
                       <input type="password" name="password" class="form-control" id="password">
+                      <input type="checkbox" onclick="myFunction()" class="mt-2 fs-small"><span>Lihat Password</span>
                     </div>
                     <button type="submit" style="background: #004643" class="btn text-white mt-2 py-2 px-5 w-100">Masuk</button>
                 </form>
@@ -45,6 +46,17 @@
   </section>
 </body>
 </html>
+
+<script>
+    function myFunction() {
+      var x = document.getElementById("password");
+      if (x.type === "password") {
+        x.type = "text";
+      } else {
+        x.type = "password";
+      }
+    }
+</script>
 
 {{-- <x-guest-layout>
     <!-- Session Status -->
