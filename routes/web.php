@@ -50,7 +50,7 @@ Route::middleware(['auth', 'admin'])->group(function () {
 });
 
 Route::group(['middleware' => ['auth', 'MasyarakatMiddleware']], function () {
-    Route::get('/dashboard-masyarakat', [MasyarakatController::class, 'create'])->name('dashboard-masyarakat');
+    Route::get('/form-laporan', [MasyarakatController::class, 'create'])->name('form-laporan');
     Route::get('/pengaduan', [MasyarakatController::class, 'index'])->name('pengaduan-show');
     Route::post('/dashboard-masyarakat-store', [MasyarakatController::class, 'store'])->name('dashboard-masyarakat-store');
     Route::get('/detail-pengaduan/{id}', [MasyarakatController::class, 'show'])->name('detail-pengaduan');

@@ -7,6 +7,7 @@
   <title>Login</title>
 
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
   <link href="{{ asset('front/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
   <link href="{{ asset('front/css/login.css') }}" rel="stylesheet">
 </head>
@@ -35,7 +36,7 @@
                       <input type="password" name="password" class="form-control" id="password">
                       <input type="checkbox" onclick="myFunction()" class="mt-2 fs-small"><span>Lihat Password</span>
                     </div>
-                    <button type="submit" style="background: #004643" class="btn text-white mt-2 py-2 px-5 w-100">Masuk</button>
+                    <button type="submit" style="background: #3a20e3" class="btn text-white mt-2 py-2 px-5 w-100">Masuk</button>
                 </form>
                 <div class="d-flex mt-3">
                     <p style="color: #6E6E6E;font-size:12px;width:80%">Belum punya akun? <a href="{{route('register')}}" style="font-weight: 600;color:#004643">Daftar Sekarang</a></p>

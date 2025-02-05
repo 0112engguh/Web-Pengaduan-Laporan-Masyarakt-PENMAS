@@ -1,10 +1,10 @@
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Plus Jakarta Sans", serif;
 }
 
 .right {
   height: 47.5rem;
-  background-image: url(../img/bg-login.svg);
+  background-image: url(../img/new-bg-login.svg);
   background-repeat: no-repeat;
   background-size: cover;
 }

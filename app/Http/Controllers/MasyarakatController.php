@@ -30,7 +30,7 @@ class MasyarakatController extends Controller
      */
     public function create()
     {
-        return view('masyarakat.index');
+        return view('masyarakat.form-laporan');
     }
 
     /**
