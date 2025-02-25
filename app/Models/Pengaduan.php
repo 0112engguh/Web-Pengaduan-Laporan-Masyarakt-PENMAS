@@ -24,7 +24,9 @@ class Pengaduan extends Model
     public function user() {
         return $this->belongsTo(User::class, 'user_id');
     }
-
+    // public function aktivitass() {
+    //     return $this->hasMany(Pengaduan)
+    // }
     public function details() {
         return $this->hasMany(Pengaduan::class, 'id', 'id');
     }

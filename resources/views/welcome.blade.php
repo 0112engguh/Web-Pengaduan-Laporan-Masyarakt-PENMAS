@@ -35,10 +35,10 @@
                 <a class="nav-link active" aria-current="page" href="#banner">Beranda</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#tata_cara">Tata Cara</a>
+                <a class="nav-link" href="#menu">Menu</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#menu">Menu</a>
+                <a class="nav-link" href="#tata_cara">Tata Cara</a>
               </li>
             </ul>
             @if(auth()->check())

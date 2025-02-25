@@ -1,10 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LikeController;
 use App\Http\Controllers\RoleController;
 use RealRashid\SweetAlert\Facades\Alert;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\PetugasController;
+use App\Http\Controllers\BookmarkController;
 use App\Http\Controllers\PengaduanController;
 use App\Http\Controllers\TanggapanController;
 use App\Http\Controllers\MasyarakatController;
@@ -55,6 +57,9 @@ Route::group(['middleware' => ['auth', 'MasyarakatMiddleware']], function () {
     Route::post('/dashboard-masyarakat-store', [MasyarakatController::class, 'store'])->name('dashboard-masyarakat-store');
     Route::get('/detail-pengaduan/{id}', [MasyarakatController::class, 'show'])->name('detail-pengaduan');
     Route::delete('/pengaduan-delete/{id}', [MasyarakatController::class, 'destroy'])->name('pengaduan-destroy');
+    // Route::get('/aktivitas/{id}', [MasyarakatController::class, ])
+    Route::post('/post/{id}/like', [LikeController::class, 'toggleLike'])->name('post.like');
+    Route::post('/post/{id}/bookmark', [BookmarkController::class, 'toggleBookmark'])->name('post.bookmark');
 });
 
 

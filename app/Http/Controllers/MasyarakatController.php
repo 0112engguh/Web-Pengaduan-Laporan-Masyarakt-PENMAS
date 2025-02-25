@@ -19,8 +19,13 @@ class MasyarakatController extends Controller
     public function index()
     {
         $data_pengaduan = Pengaduan::all();
-        return view('masyarakat.pengaduan', compact('data_pengaduan'));
+        return view('masyarakat.aktivitas', compact('data_pengaduan'));
 
+    }
+
+    public function activity($id)
+    {
+        
     }
     
     /**
